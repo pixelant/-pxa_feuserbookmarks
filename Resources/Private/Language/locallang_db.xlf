@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-12-25T17:39:10Z" product-name="pxa_feuserbookmarks">
+		<header/>
+		<body>
+			<trans-unit id="tx_pxafeuserbookmarks_domain_model_bookmark">
+				<source>Bookmark</source>
+			</trans-unit>
+			<trans-unit id="tx_pxafeuserbookmarks_domain_model_bookmark.feuserid">
+				<source>Feuserid</source>
+			</trans-unit>
+			<trans-unit id="tx_pxafeuserbookmarks_domain_model_bookmark.pageid">
+				<source>Pageid</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-12-25T17:39:10Z" product-name="pxa_feuserbookmarks">
+		<header/>
+		<body>
+			<trans-unit id="remove_from_favorites">
+				<source>Remove from favorites</source>
+			</trans-unit>
+			<trans-unit id="delete">
+				<source>Delete</source>
+			</trans-unit>
+			<trans-unit id="add_to_favorites">
+				<source>Add to favorites</source>
+			</trans-unit>
+
+			<trans-unit id="remove_from_favorites_success">
+				<source>Removed from favorites successful</source>
+			</trans-unit>
+			<trans-unit id="success">
+				<source>Success</source>
+			</trans-unit>
+			<trans-unit id="error_msg">
+				<source>Error occured</source>
+			</trans-unit>
+			<trans-unit id="error">
+				<source>Error</source>
+			</trans-unit>
+			<trans-unit id="add_to_favorites_success">
+				<source>Added to favorites successful</source>
+			</trans-unit>
+
+			<trans-unit id="header_list">
+				<source>Bookmarks</source>
+			</trans-unit>
+			<trans-unit id="no_bookmarks">
+				<source>You have no bookmarks</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

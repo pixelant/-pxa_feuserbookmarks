@@ -1,0 +1,14 @@
+<f:if condition="{params}">
+  <f:then>
+    <f:link.action action="new" arguments="{params: params, identificatorValue: identificatorValue}" id="bookmark-link" class="add">
+		<span class="star-images"><!-- Images --></span>
+		<span class="text"><f:translate key="add_to_favorites"/></span>
+	</f:link.action>
+  </f:then>
+  <f:else>
+    <f:link.action action="new" id="bookmark-link" class="add">
+		<span class="star-images"><!-- Images --></span>
+		<span class="text"><f:translate key="add_to_favorites"/></span>
+	</f:link.action>
+  </f:else>
+</f:if>

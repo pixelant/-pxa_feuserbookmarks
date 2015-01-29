@@ -1,0 +1,37 @@
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+	<f:security.ifAuthenticated>
+		<h2><f:translate key="header_list" /></h2>
+
+		<f:flashMessages renderMode="div" class="alert" />
+		
+		<f:if condition="{bookmarks -> f:count()} > 0">
+		  <f:then>
+		  	<ul class="list-bookmarks">
+			    <f:for each="{bookmarks}" as="bookmark">
+					<li>
+						<f:link.page pageUid="{bookmark.pageid}" additionalParams="{bookmark.params}">{bookmark.pageTitle}</f:link.page>
+						<f:link.action action="remove" arguments="{ajax: 0, identificatorValue: bookmark.specialIdentificator, pageId: bookmark.pageid}" id="bookmark-link" class="pull-right"><f:translate key="delete" /></f:link.action>
+					</li>
+				</f:for>
+			</ul>
+		  </f:then>
+		  <f:else>
+		    <f:translate key="no_bookmarks" />
+		  </f:else>
+		</f:if>
+
+	</f:security.ifAuthenticated>
+</f:section>

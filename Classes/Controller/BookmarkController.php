@@ -63,28 +63,33 @@ class BookmarkController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 		$isVisible = false;
 		$isExluded = \TYPO3\CMS\Core\Utility\GeneralUtility::inList($this->settings['excludePages'], $GLOBALS['TSFE']->id);
 
-		if($GLOBALS['TSFE']->loginUser && !$isExluded) {
-			$userId = $GLOBALS['TSFE']->fe_user->user['uid'];
-			$params = $this->getParams();
-			$isPageSpecial = $this->isPageSpecial();
+		if($GLOBALS['TSFE']->loginUser) {
+            $this->view->assign('bookmarks', $this->bookmarkRepository->getBookmarksList()->toArray());
 
-			if($isPageSpecial) {
-				$identificatorValue = $this->getIdentificatorValue($params);
-			} else {
-				$identificatorValue = NULL;
-			}
+		    if(!$isExluded) {
+                $userId = $GLOBALS['TSFE']->fe_user->user['uid'];
+                $params = $this->getParams();
+                $isPageSpecial = $this->isPageSpecial();
 
-			$bookmarks = $this->bookmarkRepository->findBookmarkByFeuserAndPageID($userId,$GLOBALS['TSFE']->id,$isPageSpecial,$identificatorValue);
-			
-			$isPageFavorite = ($bookmarks->count() > 0);
+                if($isPageSpecial) {
+                    $identificatorValue = $this->getIdentificatorValue($params);
+                } else {
+                    $identificatorValue = NULL;
+                }
 
-			$this->view->assignMultiple(array(
-				'params' => count($params) > 0 ? serialize($params) : false,
-				'isPageFavorite' => $isPageFavorite,
-				'isPageSpecial' => $isPageSpecial,
-				'identificatorValue' => $identificatorValue
-			));
-			$isVisible = true;
+                $bookmarks = $this->bookmarkRepository->findBookmarkByFeuserAndPageID($userId,$GLOBALS['TSFE']->id,$isPageSpecial,$identificatorValue);
+
+                $isPageFavorite = ($bookmarks->count() > 0);
+
+                $this->view->assignMultiple(array(
+                    'params' => count($params) > 0 ? serialize($params) : false,
+                    'isPageFavorite' => $isPageFavorite,
+                    'isPageSpecial' => $isPageSpecial,
+                    'identificatorValue' => $identificatorValue
+                ));
+                $isVisible = true;
+            }
+
 		}
 
 		$this->view->assign('isVisible',$isVisible);

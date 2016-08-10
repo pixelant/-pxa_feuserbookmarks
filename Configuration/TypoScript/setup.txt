@@ -1,8 +1,8 @@
 plugin.tx_pxafeuserbookmarks {
 	view {
-		templateRootPath = {$plugin.tx_pxafeuserbookmarks.view.templateRootPath}
-		partialRootPath = {$plugin.tx_pxafeuserbookmarks.view.partialRootPath}
-		layoutRootPath = {$plugin.tx_pxafeuserbookmarks.view.layoutRootPath}
+		templateRootPaths.default = {$plugin.tx_pxafeuserbookmarks.view.templateRootPath}
+		partialRootPaths.default = {$plugin.tx_pxafeuserbookmarks.view.partialRootPath}
+		layoutRootPaths.default = {$plugin.tx_pxafeuserbookmarks.view.layoutRootPath}
 	}
 	persistence {
 		storagePid = {$plugin.tx_pxafeuserbookmarks.persistence.storagePid}

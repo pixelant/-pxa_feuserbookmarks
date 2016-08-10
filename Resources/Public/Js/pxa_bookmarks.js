@@ -5,7 +5,6 @@ $(function() {
     	if(!pxaBookmarkLinkPressed) {
             var link = $(this);
     		var url = link.attr("href");
-            var className = link.attr("class");
             var ajaxLoader = link.parent().find(".ajax-loader");
 
             pxaBookmarkLinkPressed = true;
@@ -21,7 +20,18 @@ $(function() {
                         } else {
                             link.removeClass("remove").addClass("add").addClass("done");
                         }
-                        link.find(".text").text(data.text);
+                        var textEl = link.find(".text");
+
+                        if(textEl.length > 0) {
+                            textEl.text(data.text);
+                        }
+                        var listLink = link.parent().find(".list-link");
+                        if(listLink.length > 0) {
+                            var nbr = listLink.find(".nmb"),
+                                currentNbr = parseInt(nbr.text());
+
+                            nbr.text(currentNbr + (link.hasClass("add") ? -1 : 1));
+                        }
                     } else {
                         console.log('Error while adding/removing from bookmarks')
                     }

@@ -14,7 +14,7 @@
 			</trans-unit>
 
 			<trans-unit id="remove_from_favorites_success">
-				<source>Removed from favorites successful</source>
+				<source>The bookmark was successfully removed.</source>
 			</trans-unit>
 			<trans-unit id="success">
 				<source>Success</source>

@@ -136,12 +136,9 @@ class BookmarkController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 			if($status) {
 				$message = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('remove_from_favorites_success', $this->extensionName);
 				//$title = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('success', $this->extensionName);
-				$this->flashMessageContainer->add($message, '', \TYPO3\CMS\Core\Messaging\FlashMessage::OK,TRUE);
-				
 			} else {
 				$message = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('error_msg', $this->extensionName);
 				$title = \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('error', $this->extensionName);
-				$this->flashMessageContainer->add($message, $title, \TYPO3\CMS\Core\Messaging\FlashMessage::ERROR);
 			}
 			
 			$this->redirect('widget');

@@ -15,8 +15,6 @@ Otherwise your changes will be overwritten the next time you save the extension 
 	<f:security.ifAuthenticated>
 		<h2><f:translate key="header_list" /></h2>
 
-		<f:flashMessages renderMode="div" class="alert" />
-		
 		<f:if condition="{bookmarks -> f:count()} > 0">
 		  <f:then>
 		  	<ul class="list-bookmarks">

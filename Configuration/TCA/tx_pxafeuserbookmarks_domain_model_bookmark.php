@@ -3,8 +3,34 @@ if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
-$TCA['tx_pxafeuserbookmarks_domain_model_bookmark'] = array(
-	'ctrl' => $TCA['tx_pxafeuserbookmarks_domain_model_bookmark']['ctrl'],
+return [
+	'ctrl' => array(
+		'title'	=> 'LLL:EXT:pxa_feuserbookmarks/Resources/Private/Language/locallang_db.xlf:tx_pxafeuserbookmarks_domain_model_bookmark',
+		'label' => 'feuserid',
+		'tstamp' => 'tstamp',
+		'crdate' => 'crdate',
+		'cruser_id' => 'cruser_id',
+		'dividers2tabs' => TRUE,
+
+		'versioningWS' => 2,
+		'versioning_followPages' => TRUE,
+		'origUid' => 't3_origuid',
+		'languageField' => 'sys_language_uid',
+		'transOrigPointerField' => 'l10n_parent',
+		'transOrigDiffSourceField' => 'l10n_diffsource',
+		'delete' => 'deleted',
+		'enablecolumns' => array(
+			'disabled' => 'hidden',
+			'starttime' => 'starttime',
+			'endtime' => 'endtime',
+		),
+		'searchFields' => 'feuserid,pageid,params,',
+		'dynamicConfigFile' => 'EXT:pxa_feuserbookmarks/Configuration/TCA/Bookmark.php',
+		'iconfile' => 'EXT:pxa_feuserbookmarks/Resources/Public/Icons/tx_pxafeuserbookmarks_domain_model_bookmark.gif',
+
+		'rootLevel' => 1,
+		'hideTable' => TRUE
+	),
 	'interface' => array(
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, feuserid, pageid, special_identificator, params',
 	),
@@ -131,7 +157,7 @@ $TCA['tx_pxafeuserbookmarks_domain_model_bookmark'] = array(
 			),
 		),
 	),
-);
+];
 
 ## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
 ?>

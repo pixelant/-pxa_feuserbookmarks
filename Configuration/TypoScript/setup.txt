@@ -101,4 +101,17 @@ lib.pxaFeuserbookmarks {
 	settings =< plugin.tx_pxafeuserbookmarks.settings
 }
 
+ajaxBookmarks = PAGE
+ajaxBookmarks {
+	typeNum = 1368658
+	config {
+		disableAllHeaderCode = 1
+		additionalHeaders = Content-type:application/json
+		xhtml_cleaning = 0
+		admPanel = 0
+		debug = 0
+	}
+	10 < lib.pxaFeuserbookmarks
+}
+
 ## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder

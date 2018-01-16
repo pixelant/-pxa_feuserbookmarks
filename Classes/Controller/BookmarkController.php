@@ -1,6 +1,9 @@
 <?php
 namespace Pixelant\PxaFeuserbookmarks\Controller;
 
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+
+
 /***************************************************************
  *  Copyright notice
  *
@@ -50,7 +53,10 @@ class BookmarkController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	public function widgetAction() {				
 		if($GLOBALS['TSFE']->loginUser) {
 			$bookmarks = $this->bookmarkRepository->getBookmarksList();
-        	$this->view->assign('bookmarks', $bookmarks);			
+			
+			// Use toarray() method to fix when the query contains a $statement the query is regularly executed and the number of results is counted
+     		// instead of the original implementation which tries to create a custom COUNT(*) query and delivers wrong results
+        	$this->view->assign('bookmarks', $bookmarks->toarray());			
 		}
 	}
 

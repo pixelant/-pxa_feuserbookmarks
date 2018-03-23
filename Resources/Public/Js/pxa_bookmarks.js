@@ -1,6 +1,6 @@
 $(function() {
 	var pxaBookmarkLinkPressed = false;
-    $("#bookmark-link").on("click",function(e) {
+    $("#bookmark-link, .bookmark-link").on("click",function(e) {
     	e.preventDefault();
     	if(!pxaBookmarkLinkPressed) {
             var link = $(this);

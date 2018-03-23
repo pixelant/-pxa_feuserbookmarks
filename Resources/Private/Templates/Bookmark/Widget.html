@@ -21,7 +21,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			    <f:for each="{bookmarks}" as="bookmark">
 					<li>
 						<f:link.page pageUid="{bookmark.pageid}" additionalParams="{bookmark.params}">{bookmark.pageTitle}</f:link.page>
-						<f:link.action action="remove" arguments="{ajax: 0, identificatorValue: bookmark.specialIdentificator, pageId: bookmark.pageid}" id="bookmark-link" class="pull-right"><f:translate key="delete" /></f:link.action>
+						<f:link.action action="remove" arguments="{ajax: 0, identificatorValue: bookmark.specialIdentificator, pageId: bookmark.pageid}" class="bookmark-link pull-right"><f:translate key="delete" /></f:link.action>
 					</li>
 				</f:for>
 			</ul>

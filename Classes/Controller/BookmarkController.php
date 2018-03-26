@@ -2,6 +2,7 @@
 namespace Pixelant\PxaFeuserbookmarks\Controller;
 
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 
 
 /***************************************************************
@@ -50,8 +51,11 @@ class BookmarkController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	 *
 	 * @return void
 	 */
-	public function widgetAction() {				
-		if($GLOBALS['TSFE']->loginUser) {
+	public function widgetAction() {
+	    /** @var TypoScriptFrontendController $tsfe */
+	    $tsfe = $GLOBALS['TSFE'];
+
+		if($tsfe->loginUser && (int)$tsfe->fe_user->user['uid'] > 0) {
 			$bookmarks = $this->bookmarkRepository->getBookmarksList();
 			
 			// Use toarray() method to fix when the query contains a $statement the query is regularly executed and the number of results is counted
@@ -69,7 +73,10 @@ class BookmarkController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 		$isVisible = false;
 		$isExluded = \TYPO3\CMS\Core\Utility\GeneralUtility::inList($this->settings['excludePages'], $GLOBALS['TSFE']->id);
 
-		if($GLOBALS['TSFE']->loginUser) {
+        /** @var TypoScriptFrontendController $tsfe */
+        $tsfe = $GLOBALS['TSFE'];
+
+		if($tsfe->loginUser && (int)$tsfe->fe_user->user['uid'] > 0) {
             $this->view->assign('bookmarks', $this->bookmarkRepository->getBookmarksList()->toArray());
 
 		    if(!$isExluded) {

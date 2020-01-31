@@ -35,13 +35,6 @@ class Bookmark extends AbstractEntity
     protected $specialIdentificator;
 
     /**
-     * Url Params
-     *
-     * @var string
-     */
-    protected $params;
-
-    /**
      * @param BookmarkTitle $bookmarkTitle
      */
     public function injectBookmarkTitle(BookmarkTitle $bookmarkTitle)

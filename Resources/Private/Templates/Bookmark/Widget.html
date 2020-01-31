@@ -1,35 +1,34 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:pxa="http://typo3.org/ns/Pixelant/PxaFeuserbookmarks/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 
-This Template is responsible for creating a table of domain objects.
-
-If you modify this template, do not forget to change the overwrite settings
-in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        List.html: keep
-
-Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-	<f:security.ifAuthenticated>
-		<h2><f:translate key="header_list" /></h2>
+    <f:security.ifAuthenticated>
+        <h2>
+            <f:translate key="header_list" />
+        </h2>
 
-		<f:if condition="{bookmarks -> f:count()} > 0">
-		  <f:then>
-		  	<ul class="list-bookmarks">
-			    <f:for each="{bookmarks}" as="bookmark">
-					<li>
-						<f:link.page pageUid="{bookmark.pageid}" additionalParams="{bookmark.params}">{bookmark.pageTitle}</f:link.page>
-						<f:link.action action="remove" arguments="{ajax: 0, identificatorValue: bookmark.specialIdentificator, pageId: bookmark.pageid}" class="bookmark-link pull-right"><f:translate key="delete" /></f:link.action>
-					</li>
-				</f:for>
-			</ul>
-		  </f:then>
-		  <f:else>
-		    <f:translate key="no_bookmarks" />
-		  </f:else>
-		</f:if>
-
-	</f:security.ifAuthenticated>
+        <f:if condition="{bookmarks}">
+            <f:then>
+                <ul class="list-bookmarks">
+                    <f:for each="{bookmarks}" as="bookmark">
+                        <li>
+                            <pxa:bookmarkUrl settings="{settings}" bookmark="{bookmark}">
+                                {bookmark.title}
+                            </pxa:bookmarkUrl>
+                            <f:link.action action="remove"
+                                           arguments="{pageId: bookmark.pageid, identificatorValue: bookmark.specialIdentificator}">
+                                <f:translate key="delete" />
+                            </f:link.action>
+                        </li>
+                    </f:for>
+                </ul>
+            </f:then>
+            <f:else>
+                <f:translate key="no_bookmarks" />
+            </f:else>
+        </f:if>
+    </f:security.ifAuthenticated>
 </f:section>
+</html>

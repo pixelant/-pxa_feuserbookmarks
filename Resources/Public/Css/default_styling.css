@@ -1,0 +1,63 @@
+.tx-pxa-feuserbookmarks #bookmark-link {
+    text-decoration: none;
+}
+
+.star-images {
+    width: 16px;
+    height: 15px;
+    display: inline-block;
+    background-image: url(/typo3conf/ext/pxa_feuserbookmarks/Resources/Public/Images/bookmark.png);
+}
+
+.tx-pxa-feuserbookmarks #bookmark-link.remove .star-images,
+.tx-pxa-feuserbookmarks #bookmark-link.add:hover .star-images {
+    background-position: 16px 0;
+}
+
+.tx-pxa-feuserbookmarks #bookmark-link.remove.done:hover .star-images {
+    background-position: 16px 0;
+}
+
+.tx-pxa-feuserbookmarks #bookmark-link.add .star-images,
+.tx-pxa-feuserbookmarks #bookmark-link.remove:hover .star-images {
+    background-position: 0 0;
+}
+
+.tx-pxa-feuserbookmarks #bookmark-link.add.done:hover .star-images {
+    background-position: 0 0;
+}
+
+.tx-pxa-feuserbookmarks #bookmark-link.done:hover {
+    cursor: default;
+}
+
+.tx-pxa-feuserbookmarks {
+    position: relative;
+    padding-right: 25px;
+}
+
+.tx-pxa-feuserbookmarks img.ajax-loader {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: 0;
+    top: -3px;
+    display: none;
+}
+
+.tx-pxa-feuserbookmarks .list-bookmarks li {
+    list-style: none;
+    position: relative;
+    padding-left: 21px;
+}
+
+.tx-pxa-feuserbookmarks .list-bookmarks li:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 15px;
+    left: 0;
+    top: 3px;
+    background: url(/typo3conf/ext/pxa_feuserbookmarks/Resources/Public/Images/star.png) center no-repeat;
+}

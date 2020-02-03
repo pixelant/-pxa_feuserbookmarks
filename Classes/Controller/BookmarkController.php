@@ -107,10 +107,9 @@ class BookmarkController extends ActionController
      *
      * @param int $pageId pageId
      * @param int $identificatorValue special identificator
-     * @param bool $ajax if call ajax
      * @return mixed|void
      */
-    public function removeAction(int $pageId = null, int $identificatorValue = null, bool $ajax = null)
+    public function removeAction(int $pageId = null, int $identificatorValue = null)
     {
         $pageId = $pageId ?? $this->currentPage;
 
@@ -126,7 +125,7 @@ class BookmarkController extends ActionController
             }
         }
 
-        if ($ajax) {
+        if (GeneralUtility::_GET('type')) {
             return json_encode([
                 'status' => true,
                 'text' => LocalizationUtility::translate('remove_from_favorites_success', $this->extensionName),

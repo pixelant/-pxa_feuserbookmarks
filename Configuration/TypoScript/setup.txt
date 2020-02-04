@@ -1,104 +1,63 @@
 plugin.tx_pxafeuserbookmarks {
-	view {
-		templateRootPaths.default = {$plugin.tx_pxafeuserbookmarks.view.templateRootPath}
-		partialRootPaths.default = {$plugin.tx_pxafeuserbookmarks.view.partialRootPath}
-		layoutRootPaths.default = {$plugin.tx_pxafeuserbookmarks.view.layoutRootPath}
-	}
-	persistence {
-		storagePid = {$plugin.tx_pxafeuserbookmarks.persistence.storagePid}
-	}
-	features {
-		# uncomment the following line to enable the new Property Mapper.
-		rewrittenPropertyMapper = 1
-	}
-	settings {
-		excludePages = {$plugin.tx_pxafeuserbookmarks.settings.excludePages}
-		#specialPages {
-		#	uid  {
-		#		tableName = table name
-		#		titleField =
-		#		identificatorParam =
-		#	}
-		#}
-	}
+    view {
+        templateRootPaths.default = {$plugin.tx_pxafeuserbookmarks.view.templateRootPath}
+        partialRootPaths.default = {$plugin.tx_pxafeuserbookmarks.view.partialRootPath}
+        layoutRootPaths.default = {$plugin.tx_pxafeuserbookmarks.view.layoutRootPath}
+    }
+
+    persistence {
+        storagePid = {$plugin.tx_pxafeuserbookmarks.persistence.storagePid}
+    }
+
+    settings {
+        excludePages = {$plugin.tx_pxafeuserbookmarks.settings.excludePages}
+        #specialPages {
+        #    uid  {
+        #        tableName = tx_news_domain_model_news
+        #        titleField = title
+        #        identificatorParam = tx_news_pi1|news
+        #        urlParams = &tx_news_pi1[action]=detail&tx_news_pi1[controller]=News&tx_news_pi1[news]=###IDENTIFICATOR###
+        #    }
+        #}
+    }
 }
 
-page.includeJSFooterlibs.pxaFeuserbookmarks = typo3conf/ext/pxa_feuserbookmarks/Resources/Public/Js/pxa_bookmarks.js
+# Assets
+page {
+    includeJSFooter.pxaFeuserbookmarks = EXT:pxa_feuserbookmarks/Resources/Public/Js/pxa_bookmarks.js
+    includeCSS.pxaFeuserbookmarks = EXT:pxa_feuserbookmarks/Resources/Public/Css/default_styling.css
+}
 
-plugin.tx_pxafeuserbookmarks._CSS_DEFAULT_STYLE (
-	.tx-pxa-feuserbookmarks #bookmark-link {
-		text-decoration: none;
-	}
-	.star-images {
-		width: 16px;
-		height: 15px;
-		display: inline-block;
-		background-image: url(/typo3conf/ext/pxa_feuserbookmarks/Resources/Public/Images/bookmark.png);
-	}
-	.tx-pxa-feuserbookmarks #bookmark-link.remove .star-images,
-	.tx-pxa-feuserbookmarks #bookmark-link.add:hover .star-images {
-		background-position: 16px 0;
-	}
-	.tx-pxa-feuserbookmarks #bookmark-link.remove.done:hover .star-images {
-		background-position: 16px 0;
-	}
 
-	.tx-pxa-feuserbookmarks #bookmark-link.add .star-images,
-	.tx-pxa-feuserbookmarks #bookmark-link.remove:hover .star-images {
-		background-position: 0 0;
-	}
-	.tx-pxa-feuserbookmarks #bookmark-link.add.done:hover .star-images {
-		background-position: 0 0;	
-	}
-	.tx-pxa-feuserbookmarks #bookmark-link.done:hover {
-		cursor: default;
-	}
-	.tx-pxa-feuserbookmarks {
-		position: relative;
-		padding-right: 25px;
-	}
-	.tx-pxa-feuserbookmarks img.ajax-loader{
-		position: absolute;
-		width: 25px;
-		height: 25px;
-		right: 0;
-		top: -3px;
-		display: none;
-	}
-	.tx-pxa-feuserbookmarks .list-bookmarks li {
-		list-style: none;
-		position: relative;
-		padding-left: 21px;
-	}
-	.tx-pxa-feuserbookmarks .list-bookmarks li:before {
-		content: '';
-		display: block;
-		position: absolute;
-		width: 16px;
-		height: 15px;
-		left: 0;
-		top: 3px;
-		background: url(/typo3conf/ext/pxa_feuserbookmarks/Resources/Public/Images/star.png) center no-repeat;
-	}
-)
- 
 lib.pxaFeuserbookmarks = USER
 lib.pxaFeuserbookmarks {
-	userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
-	extensionName = PxaFeuserbookmarks
-	pluginName = Pxasitebookmarksnew
-	vendorName = Pixelant
+    userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+    extensionName = PxaFeuserbookmarks
+    pluginName = Pxasitebookmarksnew
+    vendorName = Pixelant
 
-	switchableControllerActions {
-		Bookmark {
-             1 = add
-             2 = remove
-             3 = new
-		}
-	}
+    switchableControllerActions {
+        Bookmark {
+            1 = add
+            2 = remove
+            3 = new
+        }
+    }
 
-	persistence =< plugin.tx_pxafeuserbookmarks.persistence
-	settings =< plugin.tx_pxafeuserbookmarks.settings
+    persistence =< plugin.tx_pxafeuserbookmarks.persistence
+    settings =< plugin.tx_pxafeuserbookmarks.settings
 }
 
-## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
+ajaxBookmarks = PAGE
+ajaxBookmarks {
+    typeNum = 1368658
+    config {
+        disableAllHeaderCode = 1
+        additionalHeaders = Content-type:application/json
+        xhtml_cleaning = 0
+        admPanel = 0
+        debug = 0
+    }
+
+    10 < lib.pxaFeuserbookmarks
+}

@@ -1,0 +1,14 @@
+{
+  "name": "pixelant/pxa-feuserbookmarks",
+  "description": "Website User can store bookmarks to pages",
+  "type": "typo3-cms-extension",
+  "license": "GPL-2.0+",
+  "autoload": {
+    "psr-4": {
+      "Pixelant\\PxaFeuserbookmarks\\": "Classes/"
+    }
+  },
+  "require": {
+    "typo3/cms-core": "^9.5"
+  }
+}

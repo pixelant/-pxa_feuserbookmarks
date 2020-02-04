@@ -1,18 +1,19 @@
 plugin.tx_pxafeuserbookmarks {
-	view {
-		# cat=plugin.tx_pxafeuserbookmarks/file; type=string; label=Path to template root (FE)
-		templateRootPath = EXT:pxa_feuserbookmarks/Resources/Private/Templates/
-		# cat=plugin.tx_pxafeuserbookmarks/file; type=string; label=Path to template partials (FE)
-		partialRootPath = EXT:pxa_feuserbookmarks/Resources/Private/Partials/
-		# cat=plugin.tx_pxafeuserbookmarks/file; type=string; label=Path to template layouts (FE)
-		layoutRootPath = EXT:pxa_feuserbookmarks/Resources/Private/Layouts/
-	}
-	persistence {
-		# cat=plugin.tx_pxafeuserbookmarks//a; type=string; label=Default storage PID
-		storagePid = 
-	}
-	settings {
-		excludePages =
-	}
+    view {
+        # cat=plugin.tx_pxafeuserbookmarks/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:pxa_feuserbookmarks/Resources/Private/Templates/
+        # cat=plugin.tx_pxafeuserbookmarks/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:pxa_feuserbookmarks/Resources/Private/Partials/
+        # cat=plugin.tx_pxafeuserbookmarks/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:pxa_feuserbookmarks/Resources/Private/Layouts/
+    }
+
+    persistence {
+        # cat=plugin.tx_pxafeuserbookmarks//a; type=string; label=Default storage PID
+        storagePid =
+    }
+
+    settings {
+        excludePages =
+    }
 }
-## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder

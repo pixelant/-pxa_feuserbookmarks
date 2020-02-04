@@ -20,7 +20,7 @@
 				<source>Success</source>
 			</trans-unit>
 			<trans-unit id="error_msg">
-				<source>Error occured</source>
+				<source>Error occurred</source>
 			</trans-unit>
 			<trans-unit id="error">
 				<source>Error</source>

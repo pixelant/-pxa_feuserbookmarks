@@ -1,15 +1,10 @@
-<f:if condition="{identificatorValue}">
-  <f:then>
-    <f:link.action action="remove" arguments="{ajax: 1, identificatorValue: identificatorValue}" id="bookmark-link" class="remove">
-    	<span class="star-images"><!-- Images --></span>
-    	<span class="text"><f:translate key="remove_from_favorites"/></span>
-    </f:link.action>
-  </f:then>
-  <f:else>
-    <f:link.action action="remove" arguments="{ajax: 1}" id="bookmark-link" class="remove">
-    	<span class="star-images"><!-- Images --></span>
-    	<span class="text"><f:translate key="remove_from_favorites"/></span>
-    </f:link.action>
-  </f:else>
-</f:if>
-
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:link.action action="remove"
+               pageType="1368658"
+               arguments="{identificatorValue: identificatorValue}"
+               id="bookmark-link"
+               class="remove">
+    <span class="star-images"><!-- Images --></span>
+    <span class="text"><f:translate key="remove_from_favorites" /></span>
+</f:link.action>
+</html>
